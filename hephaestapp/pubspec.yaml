@@ -78,3 +78,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+      - family: Helvetica
+        fonts:
+        - asset: fonts/font.ttf
+      - family: HelveticaBold
+        fonts:
+        - asset: fonts/bold.ttf
