@@ -46,14 +46,9 @@ final formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(elevation: 0, backgroundColor: const Color(0xfffbf9ff),),
       backgroundColor: const Color(0xfffbf9ff),
       resizeToAvoidBottomInset: false,
-      appBar: new AppBar
-        (
-          title: new Text("Hephaestapp", style: TextStyle(color: Colors.black ,fontFamily: 'HelveticaBold')),
-          backgroundColor: const Color(0xfffbf9ff),
-          elevation: 0,
-        ),
       body: Container(
         margin: EdgeInsets.all(15),
         width: MediaQuery.of(context).size.width,
