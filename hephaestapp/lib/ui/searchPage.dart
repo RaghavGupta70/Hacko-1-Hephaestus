@@ -40,7 +40,7 @@ class _SearchViewState extends State<SearchView> {
             children:
             [
               SizedBox(
-              width: MediaQuery.of(context).size.width * 3/5,
+              width: 250,
               child: TextFormField(
               textAlign: TextAlign.center,
               decoration: InputDecoration(
@@ -70,7 +70,7 @@ class _SearchViewState extends State<SearchView> {
               ),
               SizedBox(width: 8),
               Container(
-              width: MediaQuery.of(context).size.width / 5,
+              width: MediaQuery.of(context).size.width / 4.5,
               height: MediaQuery.of(context).size.height / 15,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
