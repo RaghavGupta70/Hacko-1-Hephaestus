@@ -1,6 +1,10 @@
+import 'package:hephaestapp/net/flutterfire.dart';
 import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {
+
+final Function toggleView;
+Authentication(this.toggleView);
 
   @override
   _AuthenticationState createState() => _AuthenticationState();
@@ -10,10 +14,29 @@ class _AuthenticationState extends State<Authentication> {
 TextEditingController _emailfield = TextEditingController();
 TextEditingController _passwordfield = TextEditingController();
 
+AuthService authService = new AuthService();
 final formKey = GlobalKey<FormState>();
  bool isLoading = false;
 
  signIn() async {
+   
+    if (formKey.currentState.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+      await authService.signInWithEmailAndPassword(_emailfield.text, _passwordfield.text).then((result) async {
+        if(result != null){
+            Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => null));
+      }
+      else {
+          setState(() {
+            isLoading = false;
+            //show snackbar
+          });
+        }
+      });
+        } 
         
  }
 
@@ -42,6 +65,8 @@ final formKey = GlobalKey<FormState>();
         child: Column(
           
           children: [
+            SizedBox(height:10),
+            logo(),
             SizedBox(height:30),
             TextFormField(
               controller: _emailfield,
@@ -122,6 +147,7 @@ final formKey = GlobalKey<FormState>();
               child: MaterialButton(
               
               onPressed: () {
+                widget.toggleView();
                 },
               child: Text('Create an account now.', style: new TextStyle(fontSize: 20.0)),
             )
@@ -132,3 +158,19 @@ final formKey = GlobalKey<FormState>();
       );
   }
 }
+
+Widget logo()
+  {
+    // ignore: missing_required_param
+    return new Hero
+    (
+      tag: 'hero',
+
+      child: new CircleAvatar
+      (
+        backgroundColor: Colors.transparent,
+        child: Image.asset('images/LogoBlur.png'), //ADD APP LOGO HERE *****
+        radius: 110.0,
+      ),
+    );
+  }
