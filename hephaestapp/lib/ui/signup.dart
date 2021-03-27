@@ -161,7 +161,7 @@ bool isLoading = false;
                 ),
               ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   widget.toggleView();
@@ -175,7 +175,7 @@ bool isLoading = false;
                   color: const Color(0xfff7f0ff),
                 ),
                 child: Text('Already Have An Account? Login now.',
-                style: TextStyle(fontSize: 20,color: Colors.black),
+                style: TextStyle(fontSize: 18,color: Colors.black),
                 ),
               ),
               ),

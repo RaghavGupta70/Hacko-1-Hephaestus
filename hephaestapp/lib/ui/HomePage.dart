@@ -77,7 +77,8 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height / 8,
             width: MediaQuery.of(context).size.width,
             child: Lottie.asset('assets/Waves.json'),
-          ),  
+          ),
+          SizedBox(height: 10),  
           SizedBox(
             width: MediaQuery.of(context).size.width / 1.1,
             height: MediaQuery.of(context).size.height / 14,
@@ -88,14 +89,14 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context,index) {
                 return Container(
                   decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(15.0),
                         color: _color,
                       ),
                   
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
                   child: Column(
                     children: [
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                     width: MediaQuery.of(context).size.width / 3,
                     child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontFamily: 'HelveticaBold')),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 20),
                         GestureDetector(
                         onTap: () async{
                         Response searchCourse1;
@@ -132,17 +133,17 @@ class _HomePageState extends State<HomePage> {
                         }
                        },
                        child: Container(
-                        width: 140.0,
+                        width: 120.0,
                         height: 80.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.fill, image: NetworkImage(searchResponse[index]['image_125_H'])),
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          color: Colors.redAccent,
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          color:const Color(0xFFBB80FF),
                         ),
                       ),
                         ),
-                     SizedBox(width: 15),
+                     SizedBox(width: 20),
                       GestureDetector(
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
@@ -152,7 +153,7 @@ class _HomePageState extends State<HomePage> {
     
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                   ],
                   ),
                 );

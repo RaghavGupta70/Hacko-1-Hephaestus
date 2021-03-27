@@ -30,20 +30,20 @@ class Favourites extends StatelessWidget {
               children: snapshot.data.docs.map((document){
                 return Container(
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: const Color(0xFFBB80FF),),
-                  margin: EdgeInsets.only(top: 7, bottom: 7, left: 10, right: 10),
+                  margin: EdgeInsets.only(top: 15, bottom: 5, left: 15, right: 15),
                   child: Column(
                     children:
                     [
-                    SizedBox(height: 5),
+                    SizedBox(height: 15),
                     Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    SizedBox(width: 5),
+                    SizedBox(width: 15),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 1.5,
-                      child: Text('${document.id}', style: TextStyle(fontSize: 20,), textAlign: TextAlign.center,),
+                      child: Text('${document.id}', style: TextStyle(fontSize: 20, fontFamily: 'HelveticaBold'), textAlign: TextAlign.center,),
                       ),
-                    SizedBox(width: 5),
+                    SizedBox(width: 10),
                     SizedBox(child:
                       IconButton(
                       iconSize: 20,
@@ -55,10 +55,10 @@ class Favourites extends StatelessWidget {
                       },
                     ),
                     ),
-                    SizedBox(width: 5),
+                    SizedBox(width: 15),
                   ],
                   ),
-                    SizedBox(height: 5),
+                    SizedBox(height: 15),
                     ],
                     ),
                   );

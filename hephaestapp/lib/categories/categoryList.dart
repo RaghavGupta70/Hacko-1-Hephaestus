@@ -19,7 +19,7 @@ CatList({Key key , @required this.searchResponse});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: (Text("Course Details", style: TextStyle(fontFamily: 'HelveticaBold', color: Colors.black),)), backgroundColor: const Color(0xFFBB80FF),),
+      appBar: AppBar(title: (Text("Course List", style: TextStyle(fontFamily: 'HelveticaBold', color: Colors.black),)), backgroundColor: const Color(0xFFBB80FF),),
       backgroundColor: const Color(0xFFE6D0FF),
       body: SingleChildScrollView(
       child: Column(
@@ -32,13 +32,13 @@ CatList({Key key , @required this.searchResponse});
                 itemBuilder: (context,index) {
                 return Container(
                   decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(15.0),
                         color: const Color(0xFFBB80FF),
                       ),
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
                   child: Column(
                     children: [
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -46,7 +46,7 @@ CatList({Key key , @required this.searchResponse});
                     width: MediaQuery.of(context).size.width / 3,
                     child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontFamily: 'HelveticaBold')),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 20),
                         GestureDetector(
                         onTap: () async{
                         Response searchCourse1;
@@ -73,17 +73,17 @@ CatList({Key key , @required this.searchResponse});
                         }
                        },
                        child: Container(
-                        width: 140.0,
+                        width: 120.0,
                         height: 80.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.fill, image: NetworkImage(searchResponse[index]['image_125_H'])),
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          color: Colors.redAccent,
+                          color: const Color(0xFFBB80FF),
                         ),
                       ),
                         ),
-                     SizedBox(width: 15),
+                     SizedBox(width: 20),
                       GestureDetector(
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
@@ -93,7 +93,7 @@ CatList({Key key , @required this.searchResponse});
     
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                   ],
                   ),
                 );

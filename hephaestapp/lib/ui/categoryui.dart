@@ -21,6 +21,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFE6D0FF),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFBB80FF),
         title: Text('Categories', style: TextStyle(color: Colors.black, fontFamily: 'HelveticaBold')),
       ),

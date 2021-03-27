@@ -45,7 +45,7 @@ class _Categories3State extends State<Categories3> {
       child: Card(
           clipBehavior: Clip.antiAlias,
           color: const Color(0xFFBB80FF),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 0,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

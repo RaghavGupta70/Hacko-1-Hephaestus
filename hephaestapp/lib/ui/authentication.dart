@@ -131,7 +131,7 @@ final formKey = GlobalKey<FormState>();
               child: Text('Login', style: new TextStyle(fontSize: 24.0,),),
             ),
             ),
-            SizedBox(height:10),
+            SizedBox(height:20),
             Container(
               width: MediaQuery.of(context).size.width / 1.5,
               height: 35.0,
