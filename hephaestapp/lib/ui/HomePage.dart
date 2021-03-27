@@ -2,110 +2,84 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:http/http.dart';
-import 'package:hephaestapp/net/coursedetails.dart';
-import 'package:hephaestapp/ui/coursepage.dart';
+import 'coursepage.dart';
 import 'package:hephaestapp/net/flutterfire.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hephaestapp/net/coursedetails.dart';
+import 'package:random_color/random_color.dart';
+import 'package:lottie/lottie.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
-class SearchView extends StatefulWidget {
-  SearchView({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
   @override
-  _SearchViewState createState() => _SearchViewState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _SearchViewState extends State<SearchView> {
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() { 
+    super.initState();
+    getCourses();    
+  }
+  RandomColor _randomColor = RandomColor();
   final formKey = GlobalKey<FormState>();
   String searchTerm;
   Map mapResponse = null;
   List searchResponse = null;
   Map mapResponse1 = null;
   List searchResponse1 = null;
+  void getCourses() async {
+  Response searchCourse;
+    var url = Uri.parse('https://www.udemy.com/api-2.0/courses/?ratings=4');
+    const String Client_id = '8A5zSXdl0Zqw9msZT8zjIunfJnxm8NMHB8jkxY84';
+    const String Client_Secret = 'QjjfkknVPfRBWJnJDMiCwEswkIevljW4JlendE1gv3nJbBjYDsXPV79Prz4dR7B58KYb5rDUicbCksxAP2NSZrpui4qlDyPas1K93R3D5Jfd7OT5B4eml1g8T7O8F3oH';
+    String auth = base64.encode(utf8.encode('$Client_id:$Client_Secret'));
+    searchCourse = await http.get(url ,headers: {"Authorization": "Basic " + auth});
+    if(searchCourse.statusCode==200){
+        setState(() {
+    mapResponse = json.decode(searchCourse.body);
+    searchResponse = mapResponse['results'];
+    print(searchResponse);
+    });
+    }
+}
   @override
   Widget build(BuildContext context) {
+  ColorSaturation _colorSaturation = ColorSaturation.highSaturation;
+    Color _color = _randomColor.randomColor(
+      colorBrightness: ColorBrightness.veryLight,
+      colorSaturation: _colorSaturation,
+  colorHue: ColorHue.multiple(colorHues: [ColorHue.purple, ColorHue.blue])
+  );
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 50,
+        elevation: 0,
+        backgroundColor: const Color(0xFFBB80FF),
+        title: TextLiquidFill(
+          loadDuration: Duration(seconds: 4),
+    text: 'ARAKourse',
+    waveColor: Colors.yellow,
+    boxBackgroundColor: const Color(0xFFBB80FF),
+    textStyle: TextStyle(
+      fontSize: 35.0,
+      fontWeight: FontWeight.bold,
+    ),),
+      ),
       backgroundColor: const Color(0xFFE6D0FF),
       body: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: 
         [
-          SizedBox(height: MediaQuery.of(context).size.height / 12),
+          SizedBox(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 8,
+            child: Lottie.asset('assets/Waves.json'),
+          ),  
           SizedBox(
             width: MediaQuery.of(context).size.width / 1.1,
-          child: Form(
-            key: formKey,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:
-            [
-              SizedBox(
-              width: 250,
-              child: TextFormField(
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                hintText: "Search Courses",
-                prefixIcon: Icon(Icons.search_sharp, color: const Color(0xFFBB80FF)),
-                border: OutlineInputBorder
-                (
-                borderSide: BorderSide(width: 3.0),
-                borderRadius: BorderRadius.circular(20),
-                ),
-                focusedBorder: OutlineInputBorder
-                (
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(width: 3.0, color: Colors.deepPurple),
-                ),
-              ),
-              validator: (value)
-                {
-                  return value.isEmpty ? 'No search term provided!' : null;
-                },
-                onSaved: (value)
-                {
-                  return searchTerm = value;
-                } ,
-              
-            ),
-              ),
-              SizedBox(width: 8),
-              Container(
-              width: MediaQuery.of(context).size.width / 4.5,
-              height: MediaQuery.of(context).size.height / 15,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: const Color(0xFFBB80FF),
-
-              ),
-              child: MaterialButton(
-              textColor: Colors.purple,
-              onPressed: () async {
-                final form = formKey.currentState;
-                if(form.validate())
-                {
-                form.save();
-                Response searchCourse;
-                var url = Uri.parse('https://www.udemy.com/api-2.0/courses/?search=${searchTerm}');
-                const String Client_id = '8A5zSXdl0Zqw9msZT8zjIunfJnxm8NMHB8jkxY84';
-                const String Client_Secret = 'QjjfkknVPfRBWJnJDMiCwEswkIevljW4JlendE1gv3nJbBjYDsXPV79Prz4dR7B58KYb5rDUicbCksxAP2NSZrpui4qlDyPas1K93R3D5Jfd7OT5B4eml1g8T7O8F3oH';
-                String auth = base64.encode(utf8.encode('$Client_id:$Client_Secret'));
-                searchCourse = await http.get(url ,headers: {"Authorization": "Basic " + auth});
-                if(searchCourse.statusCode==200){
-                    setState(() {
-                mapResponse = json.decode(searchCourse.body);
-                searchResponse = mapResponse['results'];
-                //print(searchResponse);
-                });
-                }
-                }
-                },
-              child: Text('Search', style: new TextStyle(fontSize: 16.0, color: Colors.black, fontFamily: 'HelveticaBold'),)
-            ),
-            ),
-            ]
-            ),
-            ),
-          ),
+            height: MediaQuery.of(context).size.height / 14,
+            child: Text('Find the perfect course for your needs.\nHere are some top-rated courses to get you started:', textAlign: TextAlign.center, style: TextStyle(fontFamily: 'HelveticaBold', fontSize: 16,)),),
             ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -113,7 +87,7 @@ class _SearchViewState extends State<SearchView> {
                 return Container(
                   decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
-                        color: const Color(0xFFBB80FF),
+                        color: _color,
                       ),
                   
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
@@ -125,7 +99,7 @@ class _SearchViewState extends State<SearchView> {
                     children: [
                     SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16,  fontFamily: 'HelveticaBold')),
+                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontFamily: 'HelveticaBold')),
                     ),
                     SizedBox(width: 10),
                         GestureDetector(
@@ -171,7 +145,7 @@ class _SearchViewState extends State<SearchView> {
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
                           },
-                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.black,),
+                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.black),
                           ),
     
                       ],

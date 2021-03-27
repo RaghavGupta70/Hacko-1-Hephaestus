@@ -1,6 +1,6 @@
 import 'package:hephaestapp/net/flutterfire.dart';
-import 'package:flutter/material.dart';
 import 'package:hephaestapp/ui/home_view.dart';
+import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {
 
