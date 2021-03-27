@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
   );
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 50,
         elevation: 0,
         backgroundColor: const Color(0xFFBB80FF),
