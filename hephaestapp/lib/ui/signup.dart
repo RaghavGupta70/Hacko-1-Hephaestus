@@ -1,6 +1,7 @@
 import 'package:hephaestapp/ui/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:hephaestapp/net/flutterfire.dart';
+import 'package:hephaestapp/ui/home_view.dart';
 
 
 class SignUp extends StatefulWidget {
@@ -31,7 +32,7 @@ bool isLoading = false;
       //print("${val.uid}");
       if(val != null){
       Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => null
+        builder: (context) => Home()
       ));
       }
       else {

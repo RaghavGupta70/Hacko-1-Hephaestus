@@ -1,5 +1,6 @@
 import 'package:hephaestapp/net/flutterfire.dart';
 import 'package:flutter/material.dart';
+import 'package:hephaestapp/ui/home_view.dart';
 
 class Authentication extends StatefulWidget {
 
@@ -27,7 +28,7 @@ final formKey = GlobalKey<FormState>();
       await authService.signInWithEmailAndPassword(_emailfield.text, _passwordfield.text).then((result) async {
         if(result != null){
             Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => null));
+              context, MaterialPageRoute(builder: (context) => Home()));
       }
       else {
           setState(() {
