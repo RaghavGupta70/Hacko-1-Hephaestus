@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hephaestapp/profile/components/profile_screen.dart';
-import 'package:hephaestapp/ui/favourites.dart';
+//import 'package:hephaestapp/profile/components/profile_screen.dart';
+//import 'package:hephaestapp/ui/favourites.dart';
 import 'searchPage.dart';
 
 class Home extends StatefulWidget {

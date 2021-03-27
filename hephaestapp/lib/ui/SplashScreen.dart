@@ -4,6 +4,7 @@ import 'package:hephaestapp/helper/helper.dart';
 import 'package:hephaestapp/net/flutterfire.dart';
 import 'package:hephaestapp/ui/authentication.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:hephaestapp/ui/home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   final TextStyle styleTextUnderTheLoader = TextStyle(
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) =>  getCurrentUser() ? null : Helper()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) =>  getCurrentUser() ? Home() : Helper()));
   }
 
   @override
