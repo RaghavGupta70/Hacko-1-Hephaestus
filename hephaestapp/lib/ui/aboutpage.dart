@@ -17,6 +17,7 @@ class _AboutViewState extends State<AboutView> {
         title: Text('About Us', style: TextStyle(color: Colors.yellow, fontFamily: 'HelveticaBold', fontSize: 20),),
       ),
       body: Center(
+        child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -73,6 +74,7 @@ class _AboutViewState extends State<AboutView> {
               ]
             ),
           ],
+        ),
         ),
       ),
     );

@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(),
           SizedBox(
             height: MediaQuery.of(context).size.height / 8,
+            width: MediaQuery.of(context).size.width,
             child: Lottie.asset('assets/Waves.json'),
           ),  
           SizedBox(

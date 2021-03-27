@@ -18,6 +18,7 @@ Details({Key key , @required this.title1, this.price1,this.url1,this.instruct,th
       appBar: AppBar(title: (Text("Course Details", style: TextStyle(fontFamily: 'HelveticaBold', color: Colors.black),)), backgroundColor:const Color(0xFFBB80FF),),
       body: Container(
         margin: EdgeInsets.only(top: 7, bottom: 7, left: 10, right: 10),
+        child: SingleChildScrollView(
         child: Column
         (
           mainAxisAlignment : MainAxisAlignment.start,
@@ -81,6 +82,7 @@ Details({Key key , @required this.title1, this.price1,this.url1,this.instruct,th
               child: Text(instruct, textAlign: TextAlign.center, style: TextStyle(fontSize: 20,color: Colors.black, fontFamily: 'HelveticaBold'))
             )
           ],
+        ),
         ),
       )
       );
