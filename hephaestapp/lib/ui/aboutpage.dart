@@ -10,7 +10,7 @@ class _AboutViewState extends State<AboutView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6D0FF),
+      backgroundColor: const Color(0xFFFFFFFF),
       appBar: AppBar(
         elevation: 0,
         backgroundColor:  const Color(0xFFBB80FF),

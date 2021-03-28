@@ -24,7 +24,7 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6D0FF),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -42,11 +42,12 @@ class _SearchViewState extends State<SearchView> {
               SizedBox(
               width: 250,
               child: TextFormField(
+                style: TextStyle(fontFamily: 'HelveticaBold'),
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Search Courses",
-                hintStyle: TextStyle(fontFamily: 'HelveticaBold'),
-                prefixIcon: Icon(Icons.search_sharp, color: const Color(0xFFBB80FF)),
+                hintStyle: TextStyle(fontFamily: 'Helvetica'),
+                prefixIcon: Icon(Icons.search_sharp, color: const Color(0xFF8F4CFC)),
                 border: OutlineInputBorder
                 (
                 borderSide: BorderSide(width: 3.0),
@@ -115,7 +116,7 @@ class _SearchViewState extends State<SearchView> {
                   width: MediaQuery.of(context).size.width / 1.1,
                   decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
-                        color: const Color(0xFFBB80FF),
+                        color: const Color(0xFF8F4CFC),
                       ),
                   
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
@@ -127,7 +128,7 @@ class _SearchViewState extends State<SearchView> {
                     children: [
                     SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16,  fontFamily: 'HelveticaBold')),
+                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(height: 1.25 ,wordSpacing: 4, color: Colors.white,fontSize: 16,  fontFamily: 'HelveticaBold')),
                     ),
                     SizedBox(width: 20),
                         GestureDetector(
@@ -173,7 +174,7 @@ class _SearchViewState extends State<SearchView> {
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
                           },
-                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.black,),
+                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.white,),
                           ),
     
                       ],

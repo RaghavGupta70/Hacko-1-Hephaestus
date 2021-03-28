@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     getCourses();    
   }
-  RandomColor _randomColor = RandomColor();
   final formKey = GlobalKey<FormState>();
   String searchTerm;
   Map mapResponse = null;
@@ -44,12 +43,6 @@ class _HomePageState extends State<HomePage> {
 }
   @override
   Widget build(BuildContext context) {
-  ColorSaturation _colorSaturation = ColorSaturation.highSaturation;
-    Color _color = _randomColor.randomColor(
-      colorBrightness: ColorBrightness.veryLight,
-      colorSaturation: _colorSaturation,
-  colorHue: ColorHue.multiple(colorHues: [ColorHue.purple, ColorHue.blue])
-  );
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -66,7 +59,7 @@ class _HomePageState extends State<HomePage> {
       fontWeight: FontWeight.bold,
     ),),
       ),
-      backgroundColor: const Color(0xFFE6D0FF),
+      backgroundColor: const Color(0xFFFFFFF),
       body: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -90,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                 return Container(
                   decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
-                        color: _color,
+                        color: Color(0xFF8F4CFC),
                       ),
                   
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
@@ -102,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                     SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontFamily: 'HelveticaBold')),
+                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(height: 1.25 ,wordSpacing: 4,fontSize: 16, fontFamily:'HelveticaBold',color: Colors.white)),
                     ),
                     SizedBox(width: 20),
                         GestureDetector(
@@ -148,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
                           },
-                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.black),
+                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.white),
                           ),
     
                       ],

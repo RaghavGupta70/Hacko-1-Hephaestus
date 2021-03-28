@@ -47,14 +47,14 @@ final formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(elevation: 0, backgroundColor: const Color(0xfffbf9ff),),
-      backgroundColor: const Color(0xfffbf9ff),
+      backgroundColor: const Color(0xFFFFFFFF),
       resizeToAvoidBottomInset: false,
       body: Container(
         margin: EdgeInsets.all(15),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: const Color(0xfffbf9ff),
+          color: const Color(0xFFFFFFFF),
         ),
         child: Form(
           key: formKey,
@@ -65,10 +65,12 @@ final formKey = GlobalKey<FormState>();
             logo(),
             SizedBox(height:30),
             TextFormField(
+              style: TextStyle(fontFamily: 'HelveticaBold'),
               controller: _emailfield,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Email",
+                hintStyle: TextStyle(fontFamily: 'Helvetica'),
                 prefixIcon: Icon(Icons.email_rounded, color: Colors.deepPurple),
                 border: OutlineInputBorder
                 (
@@ -89,11 +91,13 @@ final formKey = GlobalKey<FormState>();
             ),
             SizedBox(height: 20),
             TextFormField(
+              style: TextStyle(fontFamily: 'HelveticaBold'),
               controller: _passwordfield,
               obscureText: true,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: "Password",
+                hintStyle: TextStyle(fontFamily: 'Helvetica'),
                 prefixIcon: Icon(Icons.vpn_key, color: Colors.deepPurple),
                 border: OutlineInputBorder
                 (
@@ -119,7 +123,7 @@ final formKey = GlobalKey<FormState>();
               height: 45.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50.0),
-                color: const Color(0xfff7f0ff),
+                color: const Color(0xFFBB80FF),
 
               ),
               child: MaterialButton(
@@ -137,7 +141,7 @@ final formKey = GlobalKey<FormState>();
               height: 35.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50.0),
-                color: const Color(0xfff7f0ff),
+                color: const Color(0xFFEEDFFF),
 
               ),
               child: MaterialButton(

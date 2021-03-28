@@ -20,7 +20,7 @@ CatList({Key key , @required this.searchResponse});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: (Text("Course List", style: TextStyle(fontFamily: 'HelveticaBold', color: Colors.black),)), backgroundColor: const Color(0xFFBB80FF),),
-      backgroundColor: const Color(0xFFE6D0FF),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -33,7 +33,7 @@ CatList({Key key , @required this.searchResponse});
                 return Container(
                   decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
-                        color: const Color(0xFFBB80FF),
+                        color: const Color(0xFF8F4CFC),
                       ),
                   margin: EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 15),
                   child: Column(
@@ -44,7 +44,7 @@ CatList({Key key , @required this.searchResponse});
                     children: [
                     SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontFamily: 'HelveticaBold')),
+                    child: Text(searchResponse[index]['title'], textAlign: TextAlign.center, style: TextStyle(height: 1.25 ,wordSpacing: 4, fontSize: 16, fontFamily: 'HelveticaBold', color: Colors.white)),
                     ),
                     SizedBox(width: 20),
                         GestureDetector(
@@ -88,7 +88,7 @@ CatList({Key key , @required this.searchResponse});
                         onTap: () async {
                         await addCourse(searchResponse[index]['title']);
                           },
-                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.black,),
+                          child: Icon(Icons.add_circle_outline_rounded, color: Colors.white,),
                           ),
     
                       ],
