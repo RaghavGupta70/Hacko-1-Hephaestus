@@ -63,10 +63,10 @@ The goal of the aim is to create a platform for users where they can compare var
 
 # About the Developers
 
+<img align="centre" src="https://raw.githubusercontent.com/RaghavGupta70/Hacko-1-Hephaestus/main/hephaestapp/images/Aboutus.PNG"  width="340" height="550" />
 ARAK is named after the 4 developers:- A=Agam,R=Raghav,A=Ahinav,K=Kuhu.
 
-All four developers are college students.
-This app is made by students for students.
+All four developers are college students.This app is made by students for students.
 
 
 
